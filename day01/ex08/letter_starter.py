@@ -10,7 +10,7 @@ def run():
             for n, line in enumerate(file, 0):
                 line = line.rstrip('\n')
                 if n > 0:
-                    if line.split('\t')[2] == sys.argv[1]:
+                    if line.split('\t')[2] == sys.argv[1].lower():
                         employee = line.split('\t')[0]
                         print(f"Dear {employee}, welcome to our team.\n"
                               f"We are sure that it will be a pleasure to work with you.\n"
