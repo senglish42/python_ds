@@ -37,28 +37,52 @@ class Research:
             raise ValueError(f"\tAt least one value of #{string_num} string is not valid.\n"
                              f"Reminder:\tString #{string_num} of {self.file} file should only contain values: "
                              f"{self.valid[0]} and {self.valid[1]}.")
+        return [int(first), int(second)]
 
-    def file_reader(self):
+    def file_reader(self, has_header=True):
         try:
             with open(self.file, 'r') as file:
                 lines = file.readlines()
+                lst = []
                 for num, i in enumerate(lines, 1):
                     string = i.split(',')
                     self.check_length(len(string), num)
                     self.check_if_equal(string[0].strip(), string[1].strip(), num)
-                    if num == 1:
+                    if num == 1 and has_header:
                         self.check_if_valid_header(string[0].strip(), string[1].strip())
                     else:
-                        self.check_if_valid_string(string[0].strip(), string[1].strip(), num)
-                file.seek(0)
-                return file.read()
+                        lst.append(self.check_if_valid_string(string[0].strip(), string[1].strip(), num))
+                return lst
         except IOError:
             print(f"{self.file} : No such file or directory")
             quit(2)
+
+    class Calculations:
+        @staticmethod
+        def counts(database):
+            left, right = 0, 0
+            for i in database:
+                if i[0] != 0:
+                    left += 1
+                else:
+                    right += 1
+            return left, right
+
+        @staticmethod
+        def fractions(left, right):
+            total = left + right
+            p_left = left / total * 100
+            p_right = right / total * 100
+            return p_left, p_right
 
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Input a file name as one argument.")
         quit(1)
-    print(Research(sys.argv[1]).file_reader())
+    data = Research(sys.argv[1]).file_reader()
+    print(data)
+    heads, tails = Research.Calculations.counts(data)
+    print(f"{heads} {tails}")
+    p_heads, p_tails = Research.Calculations.fractions(heads, tails)
+    print(f"{p_heads} {p_tails}")
