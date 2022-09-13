@@ -1,4 +1,3 @@
-import sys
 from random import randint
 
 
@@ -94,17 +93,18 @@ class Research:
         def predict_last(self):
             return self.data[len(self.data) - 1]
 
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Input a file name as one argument.")
-        quit(1)
-    data = Research(sys.argv[1]).file_reader()
-    print(data)
-    heads, tails = Research.Calculations(data).counts()
-    print(f"{heads} {tails}")
-    p_heads, p_tails = Research.Calculations(data).fractions(heads, tails)
-    print(f"{p_heads} {p_tails}")
-    predict = Research.Analytics(data)
-    print(predict.predict_random(3))
-    print(predict.predict_last())
+        def save_file(self, database, name, extension):
+            with open(f"{name}.{extension}", 'w') as file:
+                count = len(self.data)
+                heads, tails = self.counts()
+                p_heads, p_tails = self.fractions(heads, tails)
+                new_heads, new_tails = database.counts()
+                from config import template
+                template = template.replace("%count%", f'{count}')
+                template = template.replace("%tails%", f'{tails}')
+                template = template.replace("%heads%", f'{heads}')
+                template = template.replace("%p_heads%", f'{p_heads:.2f}')
+                template = template.replace("%p_tails%", f'{p_tails:.2f}')
+                template = template.replace("%new_heads%", f'{new_heads}')
+                template = template.replace("%new_tails%", f'{new_tails}')
+                file.write(template)
