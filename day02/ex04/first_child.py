@@ -1,4 +1,5 @@
 import sys
+from random import randint
 
 
 class Research:
@@ -58,10 +59,12 @@ class Research:
             quit(2)
 
     class Calculations:
-        @staticmethod
-        def counts(database):
+        def __init__(self, data):
+            self.data = data
+
+        def counts(self):
             left, right = 0, 0
-            for i in database:
+            for i in self.data:
                 if i[0] != 0:
                     left += 1
                 else:
@@ -75,6 +78,24 @@ class Research:
             p_right = right / total * 100
             return p_left, p_right
 
+    class Analytics(Calculations):
+        @staticmethod
+        def predict_random(num):
+            lst = []
+            for i in range(num):
+                r1 = randint(0, 1)
+                if r1 == 0:
+                    r2 = 1
+                else:
+                    r2 = 0
+                lst.append([r1, r2])
+            return lst
+
+        def predict_last(self):
+            return self.data[len(self.data) - 1]
+
+
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
@@ -82,7 +103,10 @@ if __name__ == '__main__':
         quit(1)
     data = Research(sys.argv[1]).file_reader()
     print(data)
-    heads, tails = Research.Calculations.counts(data)
+    heads, tails = Research.Calculations(data).counts()
     print(f"{heads} {tails}")
-    p_heads, p_tails = Research.Calculations.fractions(heads, tails)
+    p_heads, p_tails = Research.Calculations(data).fractions(heads, tails)
     print(f"{p_heads} {p_tails}")
+    predict = Research.Analytics(data)
+    print(predict.predict_random(3))
+    print(predict.predict_last())

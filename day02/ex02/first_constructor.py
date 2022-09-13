@@ -1,21 +1,21 @@
 import sys
 
 
-def is_digit(string):
-    if string.isdigit():
-        return True
-    else:
-        try:
-            float(string)
-            return True
-        except ValueError:
-            return False
-
-
 class Research:
     def __init__(self, file):
         self.file = file
         self.valid = ('0', '1')
+
+    @staticmethod
+    def is_digit(string):
+        if string.isdigit():
+            return True
+        else:
+            try:
+                float(string)
+                return True
+            except ValueError:
+                return False
 
     def check_length(self, num, string_num):
         if num != 2:
@@ -29,7 +29,7 @@ class Research:
                              f"Reminder:\tEach string of {self.file} file should contain not the same values.")
 
     def check_if_valid_header(self, first, second):
-        if is_digit(first) is True or is_digit(second) is True:
+        if Research.is_digit(first) is True or Research.is_digit(second) is True:
             raise ValueError(f"Error: File {self.file} header should not contain a number.")
 
     def check_if_valid_string(self, first, second, string_num):
