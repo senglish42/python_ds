@@ -1,0 +1,1 @@
+termgraph file.dat --color {yellow,green}
