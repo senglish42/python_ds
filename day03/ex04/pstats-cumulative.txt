@@ -1,0 +1,13 @@
+('Tax Provision', '18,061,000', '14,527,000', '9,680,000', '10,481,000', '13,372,000')
+         523180 function calls (504067 primitive calls) in 1.793 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1886 to 5 due to restriction <5>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    192/1    0.000    0.000    1.793    1.793 {built-in method builtins.exec}
+        1    0.000    0.000    1.793    1.793 financial.py:1(<module>)
+        1    0.000    0.000    1.562    1.562 financial.py:38(run)
+        1    0.000    0.000    1.562    1.562 financial.py:6(parse)
+        1    0.000    0.000    1.451    1.451 /home/senglish/.local/lib/python3.10/site-packages/requests/api.py:62(get)
+

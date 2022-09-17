@@ -1,7 +1,7 @@
 ('Tax Provision', '18,061,000', '14,527,000', '9,680,000', '10,481,000', '13,372,000')
          686607 function calls (658497 primitive calls) in 2.108 seconds
 
-   Ordered by: internal time
+   Ordered by: call count
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
     72839    0.006    0.000    0.006    0.000 {method 'append' of 'list' objects}

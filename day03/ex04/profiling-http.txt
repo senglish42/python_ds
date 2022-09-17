@@ -1,7 +1,7 @@
 ('Tax Provision', '18,061,000', '14,527,000', '9,680,000', '10,481,000', '13,372,000')
          686607 function calls (658497 primitive calls) in 2.108 seconds
 
-   Ordered by: call count
+   Ordered by: internal time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
       156    1.276    0.008    1.276    0.008 {method 'read' of '_ssl._SSLSocket' objects}
