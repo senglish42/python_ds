@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac7101ae-2df1-4a98-95a7-6aaf22c6d41a" name="Changes" comment="" />
+    <list default="true" id="ac7101ae-2df1-4a98-95a7-6aaf22c6d41a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../day07/ex02/02_bar_chart.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../day07/ex02/02_bar_chart.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/senglish/dataScience/day06/data",
+    "last_opened_file_path": "/home/senglish/dataScience/day06",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664090689692</updated>
       <workItem from="1664090690941" duration="35950000" />
+      <workItem from="1664195706812" duration="630000" />
     </task>
     <servers />
   </component>
